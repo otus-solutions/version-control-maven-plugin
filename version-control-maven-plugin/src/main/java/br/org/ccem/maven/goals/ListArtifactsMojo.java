@@ -33,7 +33,11 @@ public class ListArtifactsMojo extends AbstractMojo {
         try {
             ClientRest clientRest = new ClientRest(urlNexus);
             NexusSearch nexusSearch = new Gson().fromJson(fetchData(clientRest), NexusSearch.class);
-            nexusSearch.getData().stream().forEach(projectData -> printData(projectData));
+
+            for (ProjectData projectData : nexusSearch.getData()) {
+                printData(projectData);
+            }
+
         } catch (DataNotFoundException e) {
             printNotFoundedData();
         }

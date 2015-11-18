@@ -5,10 +5,8 @@ import br.org.ccem.maven.dto.Version;
 public class VersionNumberControl {
 
     private Version version;
-    private String lastVersion;
 
     public VersionNumberControl(String lastVersion) {
-        this.lastVersion = lastVersion;
         splitVersion(lastVersion);
     }
 
@@ -17,7 +15,7 @@ public class VersionNumberControl {
         version = new Version(separated[0], separated[1], separated[2]);
     }
 
-    public void upgrade(VersionGroup versionGroup, Boolean snapshot) {
+    public void upgrade(VersionGroup versionGroup) {
         if (VersionGroup.BUG.equals(versionGroup)) {
             version.upgradeBug();
         }
@@ -29,8 +27,6 @@ public class VersionNumberControl {
         if (VersionGroup.FEATURE.equals(versionGroup)) {
             version.upgradeFeatures();
         }
-
-        version.setSnapshot(snapshot);
     }
 
     public Version getVersion() {

@@ -4,7 +4,6 @@ public class Version {
     private String release;
     private String bugs;
     private String features;
-    private Boolean snapshot;
 
     public Version(String release, String bugs, String features) {
         this.release = release;
@@ -39,15 +38,6 @@ public class Version {
         stringBuilder.append(".");
         stringBuilder.append(features);
 
-        if(snapshot){
-            stringBuilder.append("-");
-            stringBuilder.append("SNAPSHOT");
-        }
-
         return stringBuilder.toString();
-    }
-
-    public void setSnapshot(Boolean snapshot) {
-        this.snapshot = snapshot;
     }
 }

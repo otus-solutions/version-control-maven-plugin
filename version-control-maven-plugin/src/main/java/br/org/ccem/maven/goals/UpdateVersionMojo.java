@@ -32,9 +32,6 @@ public class UpdateVersionMojo extends AbstractMojo {
     @Parameter(property = "upgrade", required = true)
     private VersionGroup upgrade;
 
-    @Parameter(property = "snapshot", defaultValue = "true")
-    private Boolean snapshot;
-
     @Parameter(defaultValue = "${project}")
     private MavenProject mavenProject;
 
@@ -55,11 +52,11 @@ public class UpdateVersionMojo extends AbstractMojo {
             NexusSearch nexusSearch = new Gson().fromJson(fetchData(clientRest), NexusSearch.class);
             ReleaseDependencyPlugin releaseDependencyPlugin = new ReleaseDependencyPlugin(mavenProject, mavenSession, pluginManager);
 
-            ProjectData lastIntegratedVersion = nexusSearch.getData().stream().findFirst().get();
+            ProjectData lastIntegratedVersion = nexusSearch.getData().get(0);
             printFoundedData(lastIntegratedVersion);
 
             VersionNumberControl versionNumberControl = new VersionNumberControl(lastIntegratedVersion.getVersion());
-            versionNumberControl.upgrade(upgrade, snapshot);
+            versionNumberControl.upgrade(upgrade);
 
             releaseDependencyPlugin.call(versionNumberControl.getVersion().toString());
         }catch (DataNotFoundException e){
@@ -73,7 +70,6 @@ public class UpdateVersionMojo extends AbstractMojo {
         getLog().info("URL Nexus: " + urlNexus);
         getLog().info("Repository ID: " + repositoryId);
         getLog().info("Upgrade Type: " + upgrade.toString());
-        getLog().info("Snapshot Flag:" + snapshot.toString());
     }
 
     private void printFoundedData(ProjectData projectData){
