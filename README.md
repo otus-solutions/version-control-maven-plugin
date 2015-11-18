@@ -4,7 +4,7 @@ Ferramenta utilizada para integrar repositorio Nexus e o versionando do projeto.
 
 Ferramentas utilizadas:
   * [Nexus] (http://www.sonatype.org/nexus/)
-  * [Maven Plugin] (http://maven.apache.org/maven-release/maven-release-plugin/)
+  * [Maven Plugin] (http://www.mojohaus.org/versions-maven-plugin/)
   
 ### Listar Versões ###
 
@@ -33,4 +33,6 @@ A atualização segue o seguinte padrão:
 **Segundo Identificador** (2)  : BUG. Será imcrementado quando for utilizado o upgrade `BUG`.
 
 **Terceiro Identificador** (4) : Feature. Será incrementado quando for utilizado o upgrade `FEATURE`.
+
+**PS: Caso seja executado em um projeto raiz com multi modulos, deve ser utilizada a opção `-N` para evitar a recursão.**
  
