@@ -10,11 +10,9 @@ Ferramentas utilizadas:
 
 > mvn version-control:list-artifacts -DurlNexus=http://URL:PORT/nexus -DrepositoryId=ID_RESPOSITORIO
 
-**urlNexus**     
-Endereço Nexus que disponibiliza acesso ao repositorio da consulta
+**urlNexus** Endereço Nexus que disponibiliza acesso ao repositorio da consulta
 
-**repositoryID** 
-Identificador do repositorio Nexus
+**repositoryID** Identificador do repositorio Nexus
 
 ### Atualizar Versão ###
 
