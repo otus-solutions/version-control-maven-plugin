@@ -22,13 +22,14 @@ public class ReleaseDependencyPlugin {
     public void call(String version) throws MojoExecutionException {
         executeMojo(
                 plugin(
-                        groupId("org.apache.maven.plugins"),
-                        artifactId("maven-release-plugin"),
-                        version("2.5.3")
+                        groupId("org.codehaus.mojo"),
+                        artifactId("versions-maven-plugin"),
+                        version("2.2")
                 ),
-                goal("update-versions"),
+                goal("set"),
                 configuration(
-                        element(name("developmentVersion"), version)
+                        element(name("newVersion"), version),
+                        element(name("generateBackupPoms"), "false")
                 ),
                 executionEnvironment(
                         mavenProject,
