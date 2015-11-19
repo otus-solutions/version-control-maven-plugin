@@ -35,4 +35,19 @@ A atualização segue o seguinte padrão:
 **Terceiro Identificador** (4) : Feature. Será incrementado quando for utilizado o upgrade `FEATURE`.
 
 **PS: Caso seja executado em um projeto raiz com multi modulos, deve ser utilizada a opção `-N` para evitar a recursão.**
+
+### Redução de Prefixo ###
+
+Para utilização do plugin com seu respectivo shortname é preciso adicionar seu plugin group. Editar o arquivo settings.xml dentro da pasta .m2.
+
+```xml
+ <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+	http://maven.apache.org/xsd/settings-1.0.0.xsd">
+	<pluginGroups>
+		<pluginGroup>br.org.ccem.maven</pluginGroup>
+	</pluginGroups>
+</settings>
+```
  
