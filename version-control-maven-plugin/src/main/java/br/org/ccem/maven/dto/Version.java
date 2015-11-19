@@ -37,6 +37,8 @@ public class Version {
         stringBuilder.append(bugs);
         stringBuilder.append(".");
         stringBuilder.append(features);
+        stringBuilder.append("-");
+        stringBuilder.append("SNAPSHOT");
 
         return stringBuilder.toString();
     }
