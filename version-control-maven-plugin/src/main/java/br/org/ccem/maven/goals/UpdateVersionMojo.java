@@ -1,7 +1,7 @@
 package br.org.ccem.maven.goals;
 
 
-import br.org.ccem.maven.dependency.ReleaseDependencyPlugin;
+import br.org.ccem.maven.dependency.UpdateVersionDependencyPlugin;
 import br.org.ccem.maven.dto.NexusSearch;
 import br.org.ccem.maven.dto.ProjectData;
 import br.org.ccem.maven.exceptions.DataNotFoundException;
@@ -50,7 +50,7 @@ public class UpdateVersionMojo extends AbstractMojo {
             ClientRest clientRest = new ClientRest(urlNexus);
 
             NexusSearch nexusSearch = new Gson().fromJson(fetchData(clientRest), NexusSearch.class);
-            ReleaseDependencyPlugin releaseDependencyPlugin = new ReleaseDependencyPlugin(mavenProject, mavenSession, pluginManager);
+            UpdateVersionDependencyPlugin updateVersionDependencyPlugin = new UpdateVersionDependencyPlugin(mavenProject, mavenSession, pluginManager);
 
             ProjectData lastIntegratedVersion = nexusSearch.getData().get(0);
             printFoundedData(lastIntegratedVersion);
@@ -58,7 +58,7 @@ public class UpdateVersionMojo extends AbstractMojo {
             VersionNumberControl versionNumberControl = new VersionNumberControl(lastIntegratedVersion.getVersion());
             versionNumberControl.upgrade(upgrade);
 
-            releaseDependencyPlugin.call(versionNumberControl.getVersion().toString());
+            updateVersionDependencyPlugin.call(versionNumberControl.getVersion().toString());
         }catch (DataNotFoundException e){
             printNotFoundedData();
         }

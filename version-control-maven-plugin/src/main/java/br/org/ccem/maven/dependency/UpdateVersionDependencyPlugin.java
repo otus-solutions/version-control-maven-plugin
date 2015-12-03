@@ -7,13 +7,13 @@ import org.apache.maven.project.MavenProject;
 
 import static org.twdata.maven.mojoexecutor.MojoExecutor.*;
 
-public class ReleaseDependencyPlugin {
+public class UpdateVersionDependencyPlugin {
 
     private MavenProject mavenProject;
     private MavenSession mavenSession;
     private BuildPluginManager buildPluginManager;
 
-    public ReleaseDependencyPlugin(MavenProject mavenProject, MavenSession mavenSession, BuildPluginManager buildPluginManager) {
+    public UpdateVersionDependencyPlugin(MavenProject mavenProject, MavenSession mavenSession, BuildPluginManager buildPluginManager) {
         this.mavenProject = mavenProject;
         this.mavenSession = mavenSession;
         this.buildPluginManager = buildPluginManager;
