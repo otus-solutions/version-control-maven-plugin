@@ -26,6 +26,27 @@ Para remover confirmaçõe é possivel utilizar `--batch-mode`.
 
 A atualização segue o seguinte padrão:
 
+### Integrar ###
+
+Para facilitar o processo de integração é possivel relacionar um determinado commit (GIT) e seu tipo (BUG, FEATURE, RELEASE). Para isso é utilizado o [git notes] (http://git-scm.com/docs/git-notes). 
+Cada commit receberá um commit-type dos tipos, BUG, FEATURE ou RELEASE, tornando possivel sua posterior leitura e utilização para versionamento do mesmo. Utilização:
+
+> mvn version-control:integrate -DcommitType=BUG -Dremote=origin -N
+
+Esse goal ira criar um **NOTE** e o mesmo será atribuido ao **HEAD**.
+
+
+```
+commit 8b5cb79d7eb2d1b5e24bab206d0a18b64ec91f78
+Author: Diogo Ferreira <diogo.rosas.ferreira@gmail.com>
+Date:   Thu Dec 3 18:56:40 2015 -0200
+
+    Correção nome de Objeto
+
+Notes (commit-type):
+    '{BUG}'
+```
+
 `1.2.3-SNAPSHOT`
 
 **Primeiro Identificador** (1) : Release. Será incrementado quando for utilizado o upgrade `RELEASE`.
