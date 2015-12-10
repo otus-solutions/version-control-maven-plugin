@@ -24,7 +24,7 @@ Identificador para tipo de upgrade, podendo ser **BUG**, **FEATURE** e **RELEASE
 
 Para remover confirmaçõe é possivel utilizar `--batch-mode`.
 
-A atualização segue o seguinte padrão:
+A atualização segue o seguinte padrão: `1.2.3-SNAPSHOT`
 
 ### Integrar ###
 
@@ -46,8 +46,6 @@ Date:   Thu Dec 3 18:56:40 2015 -0200
 Notes (commit-type):
     '{BUG}'
 ```
-
-`1.2.3-SNAPSHOT`
 
 **Primeiro Identificador** (1) : Release. Será incrementado quando for utilizado o upgrade `RELEASE`.
 
