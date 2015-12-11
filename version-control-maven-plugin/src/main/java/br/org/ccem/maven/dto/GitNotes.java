@@ -5,9 +5,19 @@ import java.io.IOException;
 public class GitNotes {
     private String pullCommand = "git pull -f";
     private String pushCommand = "git push";
+    private String fetchCommand = "git fetch";
     private String noteCommand = "git notes --ref=commit-type add -m";
-    private String noteRefs = "refs/notes/commit-type";
+    private String noteRefs = "refs/notes/commit-type:refs/notes/commit-type";
 
+    public Process fetchNotes(Runtime runtime, String remote) throws IOException {
+        StringBuilder stringBuilder = new StringBuilder(fetchCommand);
+        stringBuilder.append(" ");
+        stringBuilder.append(remote);
+        stringBuilder.append(" ");
+        stringBuilder.append(noteRefs);
+
+        return runtime.exec(stringBuilder.toString());
+    }
 
     public Process pullNotes(Runtime runtime, String remote) throws IOException {
         StringBuilder stringBuilder = new StringBuilder(pullCommand);
