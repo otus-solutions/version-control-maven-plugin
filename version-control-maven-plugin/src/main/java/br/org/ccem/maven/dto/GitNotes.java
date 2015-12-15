@@ -19,19 +19,11 @@ public class GitNotes {
         return runtime.exec(stringBuilder.toString());
     }
 
-    public Process pullNotes(Runtime runtime, String remote) throws IOException {
-        StringBuilder stringBuilder = new StringBuilder(pullCommand);
-        stringBuilder.append(" ");
-        stringBuilder.append(remote);
-        stringBuilder.append(" ");
-        stringBuilder.append(noteRefs);
-
-        return runtime.exec(stringBuilder.toString());
-    }
-
     public Process createNote(Runtime runtime, String commitType) throws IOException {
         StringBuilder stringBuilder = new StringBuilder(noteCommand);
         stringBuilder.append("'{"+commitType+"}'");
+        stringBuilder.append(" ");
+        stringBuilder.append("HEAD");
 
         return runtime.exec(stringBuilder.toString());
     }

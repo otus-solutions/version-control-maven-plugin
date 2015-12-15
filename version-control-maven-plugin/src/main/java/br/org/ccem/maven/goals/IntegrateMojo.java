@@ -25,7 +25,6 @@ public class IntegrateMojo extends AbstractMojo {
             GitNotes gitNotes = new GitNotes();
 
             printData(gitNotes.fetchNotes(Runtime.getRuntime(), remote).getInputStream());
-            printData(gitNotes.pullNotes(Runtime.getRuntime(), remote).getInputStream());
             printData(gitNotes.createNote(Runtime.getRuntime(), commitType).getInputStream());
             printData(gitNotes.pushNote(Runtime.getRuntime(), remote).getInputStream());
 
