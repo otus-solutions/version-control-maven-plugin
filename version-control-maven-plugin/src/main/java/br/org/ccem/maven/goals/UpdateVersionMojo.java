@@ -53,7 +53,7 @@ public class UpdateVersionMojo extends AbstractMojo {
         printPreData();
 
         try {
-            ClientRest clientRest = new ClientRest(urlNexus, nexusUser, nexusPassword);
+            ClientRest clientRest = new ClientRest(urlNexus, nexusPassword, nexusUser);
 
             NexusSearch nexusSearch = new Gson().fromJson(fetchData(clientRest), NexusSearch.class);
             UpdateVersionDependencyPlugin updateVersionDependencyPlugin = new UpdateVersionDependencyPlugin(mavenProject, mavenSession, pluginManager);
