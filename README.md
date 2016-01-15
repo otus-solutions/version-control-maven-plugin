@@ -8,11 +8,14 @@ Ferramentas utilizadas:
   
 ### Listar Versões ###
 
-> mvn version-control:list-artifacts -DurlNexus=http://URL:PORT/nexus -DrepositoryId=ID_RESPOSITORIO
+> mvn version-control:list-artifacts -DurlNexus=http://URL:PORT/nexus -DrepositoryId=ID_RESPOSITORIO -DnexusPassword=SENHA_NEXUS -DnexusUser=USUARIO_NEXUS
 
 **urlNexus** Endereço Nexus que disponibiliza acesso ao repositorio da consulta
 
 **repositoryID** Identificador do repositorio Nexus
+
+**nexusPassword** Senha para utilização da API REST do Servidor Nexus
+
 
 ### Atualizar Versão ###
 
