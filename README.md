@@ -16,10 +16,11 @@ Ferramentas utilizadas:
 
 **nexusPassword** Senha para utilização da API REST do Servidor Nexus
 
+**nexusUser** Usuario para utilização da API REST do Servidor Nexus
 
 ### Atualizar Versão ###
 
-> mvn version-control:update-version -DurlNexus=http://URL:PORT/nexus -DrepositoryId=ID_RESPOSITORIO -Dupgrade=TYPE_UPGRADE
+> mvn version-control:update-version -DurlNexus=http://URL:PORT/nexus -DrepositoryId=ID_RESPOSITORIO -Dupgrade=TYPE_UPGRADE -DnexusPassword=SENHA_NEXUS -DnexusUser=USUARIO_NEXUS
 
 Identificador para tipo de upgrade, podendo ser **BUG**, **FEATURE** e **RELEASE**.
 
