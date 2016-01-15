@@ -41,13 +41,19 @@ public class UpdateVersionMojo extends AbstractMojo {
     @Component
     private BuildPluginManager pluginManager;
 
+    @Parameter(property = "nexusPassword", required = true)
+    private String nexusPassword;
+
+    @Parameter(property = "nexusUser", required = true)
+    private String nexusUser;
+
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
         printPreData();
 
         try {
-            ClientRest clientRest = new ClientRest(urlNexus);
+            ClientRest clientRest = new ClientRest(urlNexus, nexusUser, nexusPassword);
 
             NexusSearch nexusSearch = new Gson().fromJson(fetchData(clientRest), NexusSearch.class);
             UpdateVersionDependencyPlugin updateVersionDependencyPlugin = new UpdateVersionDependencyPlugin(mavenProject, mavenSession, pluginManager);

@@ -25,13 +25,18 @@ public class ListArtifactsMojo extends AbstractMojo {
     @Parameter(defaultValue = "${project}")
     private MavenProject mavenProject;
 
+    @Parameter(property = "nexusPassword", required = true)
+    private String nexusPassword;
+
+    @Parameter(property = "nexusUser", required = true)
+    private String nexusUser;
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
         printPreData();
 
         try {
-            ClientRest clientRest = new ClientRest(urlNexus);
+            ClientRest clientRest = new ClientRest(urlNexus, nexusPassword, nexusUser);
             NexusSearch nexusSearch = new Gson().fromJson(fetchData(clientRest), NexusSearch.class);
 
             for (ProjectData projectData : nexusSearch.getData()) {
