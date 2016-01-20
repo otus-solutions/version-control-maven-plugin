@@ -18,7 +18,7 @@ Ferramentas utilizadas:
 
 > mvn version-control:update-version -DurlNexus=http://URL:PORT/nexus -DrepositoryId=ID_RESPOSITORIO -Dupgrade=TYPE_UPGRADE
 
-Identificador para tipo de upgrade, podendo ser **BUG**, **FEATURE** e **RELEASE**.
+Identificador para tipo de upgrade, podendo ser **BUG**, **FEATURE**, **RELEASE_CANDIDATE** e **RELEASE**.
 
 Para remover confirmaçõe é possivel utilizar `--batch-mode`.
 
