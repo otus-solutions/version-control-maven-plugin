@@ -5,6 +5,7 @@ package br.org.ccem.maven.factory;
  */
 public enum VersionGroup {
     BUG,
+    RELEASE_CANDIDATE,
     RELEASE,
     FEATURE
 }

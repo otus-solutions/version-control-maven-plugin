@@ -24,6 +24,10 @@ public class VersionNumberControl {
             version.upgradeRelease();
         }
 
+        if (VersionGroup.RELEASE_CANDIDATE.equals(versionGroup)) {
+            version.upgradeReleaseCandidate();
+        }
+
         if (VersionGroup.FEATURE.equals(versionGroup)) {
             version.upgradeFeatures();
         }
