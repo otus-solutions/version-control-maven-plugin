@@ -8,6 +8,11 @@
 
 	<name>version-control-plugin</name>
 
+	<scm>
+		<connection>scm:git:git@github.com:ccem-dev/version-control-maven-plugin.git</connection>
+		<developerConnection>scm:git:git@github.com:ccem-dev/version-control-maven-plugin.git</developerConnection>
+	</scm>
+
 	<repositories>
 		<repository>
 			<id>Codehaus Mojo</id>
