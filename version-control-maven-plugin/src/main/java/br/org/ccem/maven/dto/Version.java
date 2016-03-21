@@ -13,14 +13,6 @@ public class Version {
     }
 
     public void upgradeRelease(){
-        int version_release = Integer.parseInt(release);
-        int version_bugs = 0;
-        int version_features = 0;
-
-        version_release++;
-        release = Integer.toString(version_release);
-        bugs = Integer.toString(version_bugs);
-        features = Integer.toString(version_features);
         snapshotWithSeparator = "";
     }
 
